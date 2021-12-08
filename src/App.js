@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
+import NavLogin from './components/NavLogin';
 
 function App() {
   return (
@@ -8,7 +9,11 @@ function App() {
 
       <NavBar/>
 
-      <h1>Hola mundo</h1>
+      <NavLogin />
+
+      <h1>Hard random pop</h1>
+
+      <b>"Random stuff for random people"</b>
 
     </div>
   );

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .App-logo {
@@ -36,3 +37,68 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+/* 
+*   NAVBAR
+*/
+
+.navBar {
+  width: 100%;
+  background-color: rgb(143, 24, 24);
+  overflow: auto;
+}
+
+.navBar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navBar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #644453;
+}
+
+@media screen and (max-width: 500px) {
+  .navBar a {
+    float: none;
+    display: block;
+  }
+
+  .navLogin a {
+    float: none;
+    display: block;
+  }
+}
+
+
+/* 
+*   NAVLOGIN
+*/
+
+.navLogin {
+  width: 100%;
+  background-color: rgb(143, 24, 24);
+  overflow: auto;
+}
+
+.navLogin a {
+  float: right;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+
+
