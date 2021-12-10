@@ -1,3 +1,7 @@
+/*
+* COSAS QUE VIENE POR DEFECTO PARA LA APP PRINCIPAL
+*/
+
 .App {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -42,44 +46,6 @@
 
 
 
-/* 
-*   NAVBAR
-*/
-
-.navBar {
-  width: 100%;
-  background-color: rgb(143, 24, 24);
-  overflow: auto;
-}
-
-.navBar a {
-  float: left;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navBar a:hover {
-  background-color: #000;
-}
-
-.active {
-  background-color: #644453;
-}
-
-@media screen and (max-width: 500px) {
-  .navBar a {
-    float: none;
-    display: block;
-  }
-
-  .navLogin a {
-    float: none;
-    display: block;
-  }
-}
-
 
 /* 
 *   NAVLOGIN
@@ -87,7 +53,7 @@
 
 .navLogin {
   width: 100%;
-  background-color: rgb(143, 24, 24);
+  background-color: rgb(179, 179, 179);
   overflow: auto;
 }
 
@@ -99,6 +65,36 @@
   font-size: 17px;
 }
 
+.navLogin a:hover {
+  color: black;
+
+}
+
+@media screen and (max-width: 500px) {
+  .navLogin a {
+    float: none;
+    display: block;
+  }
+}
 
 
 
+/* 
+*   FOOTER
+*/
+.miFooter {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(179, 179, 179);
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  padding: 20;
+}
+
+.miFooter a:hover {
+  color: black;
+
+}
