@@ -1,3 +1,5 @@
+/*
+
 import React from 'react';
 import { render } from 'react-dom';
 
@@ -12,7 +14,7 @@ const RandomElem = () => {
 export default RandomElem
 
 
-/*
+
 
 class Button extends React.Component {
 

@@ -98,3 +98,13 @@
   color: black;
 
 }
+
+/*
+* para los elementos de la lista de la tienda
+*/
+.itemsLista
+{
+  border: 2px #61dafb;
+  border-style: outset;
+
+}

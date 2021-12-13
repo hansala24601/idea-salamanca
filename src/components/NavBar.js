@@ -1,6 +1,8 @@
 import React from 'react'
+import CartWidget from './CartWidget';
+import ItemListContainer from './ItemListContainer';
 
-const NavBar = () => {
+const NavBar = (props) => {
     return (
         <div className="navBar">
             <nav class="navbar navbar-default">
@@ -16,6 +18,8 @@ const NavBar = () => {
                         <li><a href="#"><i class="fa fa-user-circle"></i> Sobre nosotros</a></li>
                         <li><a href="#"><i class="fa fa-truck"></i> Envíos</a></li>
                         <li><a href="#"><i class="fa fa-fw fa-envelope"></i> Contacta</a></li>
+
+                        <li><CartWidget numCarro={props.numCarro} carro={props.carro} /></li>
                     </ul>
                 </div>
             </nav>
