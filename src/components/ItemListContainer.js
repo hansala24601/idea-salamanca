@@ -15,13 +15,13 @@ export class ItemListContainer extends Component {
       ];
       
     // mensaje de bienvenida por defecto
-    greeting='Hard random pop - Random stuff for random people';
+    greeting='Hard random pop\n(Random stuff for random people)';
     
     render() {
         return (
             <div>
 
-                {this.greeting}
+                <div className="greetings">{this.greeting}</div>
                 <hr/>
 
                 {this.productosTienda.map(pt => <ItemListPintar producto={pt.producto} descCorta={pt.descCorta} descripcion={pt.descripcion} precio={pt.precio} />)}
