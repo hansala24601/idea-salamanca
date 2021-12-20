@@ -1,4 +1,5 @@
 import React from 'react'
+import ItemCount from './ItemCount'
 
 // indica como se pinta cada producto en la tienda
 const ItemListPintar = (props) => {
@@ -8,6 +9,8 @@ const ItemListPintar = (props) => {
             <p>{props.descCorta}</p>
             <p>Descripción: {props.descripcion}</p>
             <p>Precio: {props.precio} $$$</p>
+            
+            <p>Cantidad <ItemCount stock={props.stock} initial={props.initial} /></p>
             
         </div>
     )
