@@ -110,6 +110,21 @@
 }
 
 
+/*
+* para los elementos de la lista de la tienda
+*/
+.item
+{
+  border: 1px black;
+  border-style: solid;
+  background-color: honeydew;
+
+  display:inline-block;
+
+}
+
+
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 .greetings

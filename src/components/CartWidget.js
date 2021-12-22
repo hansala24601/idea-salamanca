@@ -1,5 +1,5 @@
 import React from 'react'
-import CartPintar from './CartPintar'
+//import CartPintar from './CartPintar'
 
 // Nos pinta el carrito con el número de elementos que contiene
 const CartWidget = (props) => {
@@ -9,7 +9,7 @@ const CartWidget = (props) => {
 
     return (
 
-            <a href="#"><i class="fa fa-fw fa-shopping-cart"></i>{props.numCarro}</a>
+            <a href="https://www.google.com/"><i class="fa fa-fw fa-shopping-cart"></i>{props.numCarro}</a>
 
     )
 }

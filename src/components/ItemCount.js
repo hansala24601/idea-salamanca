@@ -11,10 +11,6 @@ function ItemCount({stock, initial, onAdd}) {
 
         console.log("cantidad "+cantidad);
 
-        return () => {
-            //console.log("limpia");
-        }
-
     }, [cantidad])
 
 
