@@ -21,21 +21,24 @@ function ItemCount({stock, initial, onAdd}) {
 
     return (
         <div>
-            Stock actual: {stock}  
+            <p>Stock actual: {stock}</p>  
 
-            <button onClick={() => setCantidad(cantidad-1)}>
-                -
-            </button>
+             <div>
+                <button onClick={() => setCantidad(cantidad-1)}>
+                    -
+                </button>
 
-            {cantidad}
+                {cantidad}
 
-            <button onClick={() => setCantidad(cantidad+1)}>
-                +
-            </button>
+                <button onClick={() => setCantidad(cantidad+1)}>
+                    +
+                </button>
 
-            <button onClick={() => llamadaCallback(cantidad)}>
-                Agregar
-            </button>
+                <button onClick={() => llamadaCallback(cantidad)}>
+                    Agregar
+                </button>
+
+            </div>
         </div>
     )
 }

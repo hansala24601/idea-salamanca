@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
+import Home from './Home';
 
 const NavBar = (props) => {
     return (
@@ -19,7 +21,11 @@ const NavBar = (props) => {
                         <li><a href="https://www.google.com/"><i class="fa fa-fw fa-envelope"></i> Contacta</a></li>
 
                         <li><CartWidget numCarro={props.numCarro} carro={props.carro} /></li>
+                        
+                        
                     </ul>
+
+                    
                 </div>
             </nav>
         </div>
@@ -27,3 +33,6 @@ const NavBar = (props) => {
 }
 
 export default NavBar;
+
+
+//<li><Link to="/" >Home</Link></li>
