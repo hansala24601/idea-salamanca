@@ -21,7 +21,7 @@ const NavBar = (props) => {
                     <ul class="nav navbar-nav">
 
                         <Link to="/category/random" className='navbar-brand'>
-                            <i class="fa fa-fw fa-search" title="si no sabes qué regalar a tu cuñao regala cualquier cosa"></i>  Cosas random  
+                            <i class="fa fa-fw fa-search"></i>  Cosas random  
                         </Link>
                         
                         <Link to="/category/absurdos" className='navbar-brand'>
