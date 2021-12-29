@@ -1,4 +1,4 @@
-/*
+
 import React, { Component } from 'react'
 import CartPintar from './CartPintar';
 
@@ -22,10 +22,8 @@ export class Cart extends Component {
         return (
             <div>
 
-
+                <h2>En el carrito hay...</h2>
                 {this.carrito.map(pt => <CartPintar producto={pt.producto} cantidad={pt.cantidad} />)}
-
-                Hay {this.carrito.length} elementos en el carrito {this.numeroElemCarrito()}
                 
             </div>
         )
@@ -36,4 +34,3 @@ export class Cart extends Component {
 
 export default Cart
 
-*/

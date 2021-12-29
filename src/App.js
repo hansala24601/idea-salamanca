@@ -9,8 +9,16 @@ import { BrowserRouter, Routes, Route  } from 'react-router-dom';
 import Home from './components/Home';
 
 import { Link } from 'react-router-dom';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
+import Cart from './components/Cart';
+import Contacto from './components/Contacto';
 
+import Nosotros from './components/Nosotros';
+
+import { useParams } from 'react-router-dom';
+
+import GetId from './components/GetId';
 
 function App() {
 
@@ -29,36 +37,41 @@ function App() {
 
 
 
+
+
   return (
       
+
+
       <div className="App">
 
-        {/* <BrowserRouter>
+        <BrowserRouter className="container">
 
-            <Routes>
-                <Route index element={<Home></Home>}></Route>
-                <Route path="/lista" element={<ItemListContainer/>}>
-                  <Route path="/lista:id" element={<ItemListContainer/>}></Route>
-                </Route>
+            <NavLogin />
 
-            </Routes>
+            <NavBar numCarro={carrito.reduce((a,v) =>  a = a + v.cantidad , 0 )} carro={carrito}/>
 
-          </BrowserRouter> */}
+                <Routes>
 
-          <NavLogin />
+                  <Route path="/" element={<ItemListContainer/>} />
 
-          <NavBar numCarro={carrito.reduce((a,v) =>  a = a + v.cantidad , 0 )} carro={carrito}/>
+                  <Route path="/category/:id" element={<GetId/>}></Route>
 
-          <div class="container" id="principal">
+                  <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
 
-              <ItemListContainer />
+                  <Route path="/contacto" element={<Contacto/>}></Route>
 
-          </div>
+                  <Route path="/nosotros" element={<Nosotros/>}></Route>
+                  
+                  <Route path="/carrito/" element={<Cart/>}></Route>
 
-    
+                </Routes>
+             
           <br/><br/><br/><br/><br/><br/><br/>
           
           <MiFooter/>
+
+          </BrowserRouter>
 
       </div>
 
@@ -66,3 +79,4 @@ function App() {
 }
 
 export default App;
+

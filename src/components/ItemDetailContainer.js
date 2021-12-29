@@ -1,13 +1,19 @@
 import React, { useEffect , useState} from 'react'
+import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 
 
     const ItemDetailContainer = () => {
 
+const {id} = useParams();
+
+
         const [detalles, setDetalles] = useState([])
 
         // carga a los x segundos
         const getItem = () =>{
+
+            console.log("aqui llamariamos con el id "+id);
 
 
             // llamamos a la api para recibir los detalles
@@ -24,11 +30,15 @@ import ItemDetail from './ItemDetail';
                     precio: 10, stock: 5, initial:1,
                     imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
 
+
+                    
                     setDetalles(resultados);
 
                 })
 
         }
+
+        
 
     useEffect(() => {
         
@@ -38,11 +48,13 @@ import ItemDetail from './ItemDetail';
         }, 2000);
         return () => clearTimeout(timer);
 
-    }, [])
+    }, [id])
 
 
     return (
         <div>
+
+            Devolviendo el detalle de el producto con id {id}
 
             <ItemDetail producto={detalles.producto} descCorta={detalles.descCorta} descripcion={detalles.descripcion} 
                 precio={detalles.precio} initial={1} stock={detalles.stock} imagen={detalles.imagen} />

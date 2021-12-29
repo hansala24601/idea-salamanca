@@ -3,16 +3,24 @@
 
 import React from 'react'
 
+import { Link } from 'react-router-dom';
+
+
 const Item = (props) => {
     return (
 
         <div className='item'>
-            <h3>{props.id}</h3>
-            <h4>{props.title}</h4>
-            <p>{props.price} $$$</p>
 
-            <img height={100} width={100} src={props.pictureUrl} alt="un dibujo"/>
 
+            <Link to={{pathname: '/item/'+props.id }}>
+
+                <h3>{props.id}</h3>
+                <h4>{props.title}</h4>
+                <p>{props.price} $$$</p>
+
+                <img height={100} width={100} src={props.pictureUrl} alt="un dibujo"/>
+
+            </Link>
         </div>
     )
 }
