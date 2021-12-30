@@ -1,3 +1,3 @@
 # React
 
-Primera prueba en REACT
+Primera prueba en REACT. Proyecto tienda. Angel Salamanca
