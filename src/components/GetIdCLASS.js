@@ -2,19 +2,24 @@ import { useParams } from 'react-router-dom';
 import ItemListContainer from './ItemListContainer';
 
 import React, { useEffect , useState} from 'react'
-import { render } from '@testing-library/react';
+
 
     const GetId = () => {
 
-    //const [idProd, setIdProd] = useState([])
+        
+
+    const [idProd, setIdProd] = useState([])
 
     const {id} = useParams();
 
-    console.log("pasando el valor "+id);
+    console.log("GetId- pasando el valor "+id);
 
-render();
+    //setIdProd(id);
+
+    //const [loading, setLoading]=useState(true);
+
+    //setLoading(false);
     
-
     return (
         <div> {id} 
             <ItemListContainer id={id} />    

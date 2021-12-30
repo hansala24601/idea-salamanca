@@ -5,7 +5,7 @@ import Item from './Item'
 const ItemList = (props) => {
     return (
         <div>
-            {props.item.map(it => <Item id={it.id} title={it.title} price={it.price} pictureUrl={it.pictureUrl}></Item> )}
+            {props.items.map(it => <Item id={it.id} title={it.title} price={it.price} pictureUrl={it.pictureUrl}></Item> )}
         </div>
     )
 }

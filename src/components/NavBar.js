@@ -1,11 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
-import Home from './Home';
-import { BrowserRouter, Routes, Route  } from 'react-router-dom';
 
-import ItemListContainer from './ItemListContainer';
-import ItemDetailContainer from './ItemDetailContainer';
 
 const NavBar = (props) => {
     return (

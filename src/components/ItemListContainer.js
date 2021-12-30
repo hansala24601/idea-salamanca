@@ -1,107 +1,111 @@
-import React, { Component } from 'react'
+import React, { useEffect , useState} from 'react'
+import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
-import ItemDetail from './ItemDetail';
-import ItemDetailContainer from './ItemDetailContainer';
 
 
+    const ItemDetailContainer = () => {
 
-export class ItemListContainer extends Component {
+        const {id} = useParams();
 
-    constructor(props)
-    {
-        super(props);
-        this.state = {
-            productosTienda: []
-          };
+        const [items, setItems] = useState([])
 
-          console.log ("categoria: "+this.props.id);
-    }
+        const [loading, setLoading] = useState([false])
 
+        // carga a los x segundos
+        const getItem = () =>{
 
-   // productosDetalle=[];
+            console.log("aqui llamariamos con el id "+id);
 
 
-    // llama a bbdd a buscar los datos de la tienda 
-    promesa = new Promise((resolve, reject) => {
+            // llamamos a la api para recibir los detalles
+            const URL= 'https://rickandmortyapi.com/api/character/';
+            fetch (URL)
+                .then(res => res.json())
+                .then( data => {
 
-        const timer = setTimeout(() => {
-
-
-            // lista donde se haría la llamada a BBDD para recuperar los productos de la tienda
-
-            console.log ("llamada a BBDD con la categoria: "+this.props.id);
-
-                if (this.props.id=="random")
-                {
                     
-                    this.setState({ productosTienda:  
-                        [
+
+                    //console.log("recibiendo datos "+data.results);
+
+                    //setDetalles(data.results)
+
+                    let resultados = [];
+
+                    if (id==="random")       // simulamos una consulta de los valores random
+                    {
+    
+                        resultados = [
+
                             {id: '003', title: 'Camiseta random',  descripcion: "especial para perros", price: 12, 
                                 pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"}
                             ]
-                        });
-                }
-                else
-
-                if (this.props.id=="absurdos")
-                {
-                    this.setState({ productosTienda:  
-                        [
-
+                    }
+                    else
+                    if (id==="absurdos")         // simulamos una consulta de los valores absurdos
+                    {
+    
+                        resultados = [
                             {id: '005', title: 'Hard punk Regueton',  descripcion: "aléjate de esto", price: 100, 
                                 pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"}
                             ]
-                        });
-                }
-                else
-                {
-                    this.setState({ productosTienda:  //{props.id}{props.title}{props.price}{props.pictureUrl}
-                    [
-                        {id: '001', title: 'Soy un disco',  descripcion: "es un disco muy bonito", price: 10, 
-                            pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"},
-                        {id: '002', title: 'Otro disco',  descripcion: "parece que va a estar bien y no tanto", price: 10,  
-                            pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"},
-                        {id: '003', title: 'Camiseta random',  descripcion: "especial para perros", price: 12, 
-                            pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"},
-                        {id: '004', title: 'Jarrón',  descripcion: "es un jarrón que da satisfaction", price: 10,  
-                            pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"},
-                        {id: '005', title: 'Hard punk Regueton',  descripcion: "aléjate de esto", price: 100, 
-                            pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"}
-                        ]
-                    });
-                }
+                    }
+                    else                        // simulamos una consulta de todos los valores
+                    {
+    
+                        resultados = [
+                            {id: '001', title: 'Soy un disco',  descripcion: "es un disco muy bonito", price: 10, 
+                                pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"},
+                            {id: '002', title: 'Otro disco',  descripcion: "parece que va a estar bien y no tanto", price: 10,  
+                                pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"},
+                            {id: '003', title: 'Camiseta random',  descripcion: "especial para perros", price: 12, 
+                                pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"},
+                            {id: '004', title: 'Jarrón',  descripcion: "es un jarrón que da satisfaction", price: 10,  
+                                pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"},
+                            {id: '005', title: 'Hard punk Regueton',  descripcion: "aléjate de esto", price: 100, 
+                                pictureUrl:"https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg"}
+                            ]
+                    }
 
+                        // guardamos lo recibido
+                        setItems(resultados);
 
-            
+                        setLoading(false);
+    
 
-        }, 1000);
+                })
 
-        return () => clearTimeout(timer);
-
+        }
 
         
 
-    }).then(res => {console.log(res)}); 
+    useEffect(() => {
+        
+        setLoading(true);
 
-      
-    // mensaje de bienvenida por defecto
-    greeting='Hard random pop\n(Random stuff for random people)';
+        // hacemos un wait para simular el tiempo hasta la respuesta de la API
+       const timer = setTimeout(() => {
+
+        
+            getItem();
+        }, 2000);
+        return () => clearTimeout(timer);
+
+    }, [id])
 
 
-    
-    
-    render() {
-        return (
-            <div>
-                <div className="greetings">{this.greeting}</div>
+    const greeting='Hard random pop\n(Random stuff for random people)';
+
+    return (
+        <div>
+
+                <div className="greetings">{greeting}</div>
                 <hr/>
 
-                <ItemList item={this.state.productosTienda} />
 
-            </div>
-        )
-    }
+               {loading ? "cargando..." : <ItemList items={items} /> }
+        </div>
+    )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer
 

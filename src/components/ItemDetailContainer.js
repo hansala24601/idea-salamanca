@@ -5,10 +5,12 @@ import ItemDetail from './ItemDetail';
 
     const ItemDetailContainer = () => {
 
-const {id} = useParams();
-
+        const {id} = useParams();
 
         const [detalles, setDetalles] = useState([])
+
+        const [loading, setLoading] = useState([false])
+
 
         // carga a los x segundos
         const getItem = () =>{
@@ -34,6 +36,8 @@ const {id} = useParams();
                     
                     setDetalles(resultados);
 
+                    setLoading(false);
+
                 })
 
         }
@@ -42,6 +46,8 @@ const {id} = useParams();
 
     useEffect(() => {
         
+        setLoading(true);
+
         // hacemos un wait para simular el tiempo hasta la respuesta de la API
        const timer = setTimeout(() => {
             getItem();
@@ -54,10 +60,11 @@ const {id} = useParams();
     return (
         <div>
 
-            Devolviendo el detalle de el producto con id {id}
 
-            <ItemDetail producto={detalles.producto} descCorta={detalles.descCorta} descripcion={detalles.descripcion} 
-                precio={detalles.precio} initial={1} stock={detalles.stock} imagen={detalles.imagen} />
+            {loading ? "cargando producto... "+id : 
+
+                <ItemDetail producto={detalles.producto} descCorta={detalles.descCorta} descripcion={detalles.descripcion} 
+                    precio={detalles.precio} initial={1} stock={detalles.stock} imagen={detalles.imagen} />}
         </div>
     )
 }
