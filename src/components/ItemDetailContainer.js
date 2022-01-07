@@ -15,7 +15,7 @@ import ItemDetail from './ItemDetail';
         // carga a los x segundos
         const getItem = () =>{
 
-            console.log("aqui llamariamos con el id "+id);
+            
 
 
             // llamamos a la api para recibir los detalles
@@ -46,6 +46,8 @@ import ItemDetail from './ItemDetail';
 
     useEffect(() => {
         
+        console.log("llamada con el id de producto: "+id);
+
         setLoading(true);
 
         // hacemos un wait para simular el tiempo hasta la respuesta de la API

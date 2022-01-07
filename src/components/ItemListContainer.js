@@ -14,7 +14,7 @@ import ItemList from './ItemList';
         // carga a los x segundos
         const getItem = () =>{
 
-            console.log("aqui llamariamos con el id "+id);
+           
 
 
             // llamamos a la api para recibir los detalles
@@ -79,7 +79,10 @@ import ItemList from './ItemList';
         
 
     useEffect(() => {
-        
+
+        // si hay una ruta de categoria definida muestro cual es
+        if (id!= null) console.log("llamada a categoria id: "+id);
+
         setLoading(true);
 
         // hacemos un wait para simular el tiempo hasta la respuesta de la API

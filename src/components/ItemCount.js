@@ -1,40 +1,40 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 function ItemCount({stock, initial, onAdd}) {
 
     const [cantidad, setCantidad]= useState(initial);
 
-    useEffect(() => {
-        if(cantidad>stock) {setCantidad(stock)}
-        if(cantidad<0) {setCantidad(0)}
 
-        console.log("cantidad "+cantidad);
+    function sumar()
+    {
+        if(cantidad<stock)
+            setCantidad(cantidad+1);
+    }
 
-    }, [cantidad])
+    function restar()
+    {
+        if(cantidad>1)
+            setCantidad(cantidad-1)
+    }
 
-
-
-    function llamadaCallback(canti)
-    {console.log("llamada al callback con "+canti);}
-    
 
     return (
         <div>
             <p>Stock actual: {stock}</p>  
 
              <div>
-                <button onClick={() => setCantidad(cantidad-1)}>
+                <button onClick={() => restar()}>
                     -
                 </button>
 
                 {cantidad}
 
-                <button onClick={() => setCantidad(cantidad+1)}>
+                <button onClick={() => sumar()}>
                     +
                 </button>
 
-                <button onClick={() => llamadaCallback(cantidad)}>
+                <button onClick={() => onAdd(cantidad)}>
                     Agregar
                 </button>
 
@@ -44,3 +44,4 @@ function ItemCount({stock, initial, onAdd}) {
 }
 
 export default ItemCount
+

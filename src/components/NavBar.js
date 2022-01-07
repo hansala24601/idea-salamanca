@@ -45,27 +45,3 @@ const NavBar = (props) => {
 }
 
 export default NavBar;
-
-
-//<li><Link to="/" >Home</Link></li>
-
-//<a class="navbar-brand" href="https://www.google.com/">Hard random pop</a>
-
-
-/*
-
-        <BrowserRouter>
-
-            <Routes>
-
-                <Route path="/" element={<ItemListContainer/>} />
-
-                <Route path="/category/:id" element={<ItemListContainer/>}></Route>
-
-                <Route path="/item:id" element={<ItemDetailContainer/>}></Route>
-
-            </Routes>
-
-          </BrowserRouter> 
-
-          */

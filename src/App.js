@@ -18,6 +18,8 @@ import Nosotros from './components/Nosotros';
 
 import { BrowserRouter, Routes, Route  } from 'react-router-dom';
 
+import LoginContainer from './components/login/LoginContainer';
+
 
 function App() {
 
@@ -56,8 +58,6 @@ function App() {
 
                   <Route path="/category/:id" element={<ItemListContainer/>}></Route>
 
-                  
-
                   <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
 
                   <Route path="/contacto" element={<Contacto/>}></Route>
@@ -65,6 +65,11 @@ function App() {
                   <Route path="/nosotros" element={<Nosotros/>}></Route>
                   
                   <Route path="/carrito/" element={<Cart/>}></Route>
+
+                  <Route path="/cart/" element={<Cart/>}></Route>
+
+
+                  <Route path="/login/" element={<LoginContainer/>}></Route>
 
                 </Routes>
              

@@ -23,7 +23,7 @@ export class Cart extends Component {
             <div>
 
                 <h2>En el carrito hay...</h2>
-                {this.carrito.map(pt => <CartPintar producto={pt.producto} cantidad={pt.cantidad} />)}
+                {this.carrito.map(pt => <CartPintar key={pt.producto} producto={pt.producto} cantidad={pt.cantidad} />)}
                 
             </div>
         )
