@@ -4,10 +4,16 @@ import { Link } from 'react-router-dom';
 
 import {useState, useEffect} from 'react'
 
+import {CarritoContexto} from './CartContext';
+import { useContext}  from 'react'
+
 
 // indica como se pinta cada producto en la tienda
 const ItemDetail = (props) => {
 
+    const cosasCarrito = useContext(CarritoContexto);
+
+    console.log(cosasCarrito);
 
     const [added, setAdded] = useState(false)
 
@@ -15,12 +21,43 @@ const ItemDetail = (props) => {
     const onAdd = (cantidad) => {
         setAdded(true)
         console.log("tenemos que añadir... "+cantidad);
+
+        // si ya existe en el carrito uno asi
+        if(cosasCarrito.find(e => e.producto === props.producto))
+        {
+            console.log("hay uno ya, añadimos la cantidad");
+
+            const resultado =cosasCarrito.find(e => e.producto === props.producto);
+            resultado.cantidad=resultado.cantidad+cantidad;
+
+            cosasCarrito.splice(props.producto, 1);
+            cosasCarrito.push(resultado);
+
+
+        }
+        else
+        {
+            console.log("aun no hay con ese nombre, hay que añadirlo");
+
+            cosasCarrito.push({producto: props.producto, cantidad: cantidad, precio: props.precio });
+        }
     }
 
     useEffect(()=>{
         
-        if (!added) console.log("no ha sido añadido aun");
-        else console.log("ha sido añadido");
+        if (!added)
+        {
+            console.log("no ha sido añadido aun");
+
+            //let itemsGuardados = JSON.parse(localStorage.getItem('carrito')) || [];
+            //cosasCarrito =itemsGuardados;
+        } 
+        else 
+        {
+            console.log("ha sido añadido");
+
+            //localStorage.setItem("carrito", JSON.stringify(cosasCarrito));
+        }
 
     }, [added])
 

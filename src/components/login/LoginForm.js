@@ -4,9 +4,9 @@ import LoginButton from './LoginButton'
 const LoginForm = () => {
     return (
         <div>
-            <input></input>
+            Nombre: <input></input>
             <br></br>
-            <input></input>
+            Contraseña: <input></input>
             <br></br>
             <LoginButton></LoginButton>
         </div>

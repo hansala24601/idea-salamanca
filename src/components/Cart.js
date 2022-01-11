@@ -1,33 +1,30 @@
 
-import React, { Component } from 'react'
+import React  from 'react'
+
+import { useContext}  from 'react'
+
 import CartPintar from './CartPintar';
 
-export class Cart extends Component {
 
-    // lista donde se guarda el carrito
-    carrito =[
-        {producto: 'disco', cantidad: 1},
-        {producto: 'disco2', cantidad: 3},
-        {producto: 'disco3', cantidad: 1},
+import {CarritoContexto} from './CartContext';
+
+
+
+    const Cart = (props) => {
     
-      ];
+        const cosasCarrito = useContext(CarritoContexto);
 
-      numeroElemCarrito()
-      {
-          return this.carrito.length;
-      }
 
-    
-    render() {
         return (
             <div>
 
                 <h2>En el carrito hay...</h2>
-                {this.carrito.map(pt => <CartPintar key={pt.producto} producto={pt.producto} cantidad={pt.cantidad} />)}
-                
+                {cosasCarrito.length} elementos
+                {cosasCarrito.map(pt => <CartPintar key={pt.producto} producto={pt.producto} cantidad={pt.cantidad} precio={pt.precio} />)}
+
             </div>
         )
-    }
+
 
 
 }
