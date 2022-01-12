@@ -49,14 +49,16 @@ const ItemDetail = (props) => {
         {
             console.log("no ha sido añadido aun");
 
-            //let itemsGuardados = JSON.parse(localStorage.getItem('carrito')) || [];
-            //cosasCarrito =itemsGuardados;
+            
+            let itemsGuardados = JSON.parse(localStorage.getItem('carrito')) || [];
+            //console.log("lo guardado es... "+itemsGuardados);
+
         } 
         else 
         {
             console.log("ha sido añadido");
 
-            //localStorage.setItem("carrito", JSON.stringify(cosasCarrito));
+            localStorage.setItem("carrito", JSON.stringify(cosasCarrito));
         }
 
     }, [added])

@@ -1,5 +1,6 @@
 import React, { useEffect , useState} from 'react'
 import { useParams } from 'react-router-dom';
+import Spinner from '../Spinner';
 import ItemList from './ItemList';
 
 
@@ -105,7 +106,10 @@ import ItemList from './ItemList';
                 <hr/>
 
 
-               {loading ? "cargando..." : <ItemList items={items} /> }
+
+
+
+               {loading ? <Spinner></Spinner> : <ItemList items={items} /> }
         </div>
     )
 }
