@@ -79,6 +79,10 @@ function App() {
                 <Route path="/cart/" element={<Cart/>}></Route>
 
 
+                <Route path="/pago/" element={<Cart/>}></Route>
+
+
+
                 <Route path="/login/" element={<LoginContainer/>}></Route>
 
               </Routes>

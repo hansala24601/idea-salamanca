@@ -12,9 +12,9 @@ import { useContext}  from 'react'
 const ItemDetail = (props) => {
 
 
-    const {list, addElem, isInCarrito} = useContext(CarritoContexto)
+    //const {list, total, addElem, isInCarrito} = useContext(CarritoContexto)
 
-
+    const { addElem} = useContext(CarritoContexto)
 
 
     const [added, setAdded] = useState(false)
@@ -25,33 +25,8 @@ const ItemDetail = (props) => {
         setAdded(true)
         console.log("tenemos que añadir... "+cantidad);
 
-        let meto=props.producto;
         addElem({producto: props.producto, cantidad: cantidad, precio: props.precio });
 
-
-
-
-        // si ya existe en el carrito uno asi
-        /*
-        if(cosasCarrito.find(e => e.producto === props.producto))
-        {
-            console.log("hay uno ya, añadimos la cantidad");
-
-            const resultado =cosasCarrito.find(e => e.producto === props.producto);
-            resultado.cantidad=resultado.cantidad+cantidad;
-
-            cosasCarrito.splice(props.producto, 1);
-            cosasCarrito.push(resultado);
-
-
-        }
-        else
-        {
-            console.log("aun no hay con ese nombre, hay que añadirlo");
-
-            cosasCarrito.push({producto: props.producto, cantidad: cantidad, precio: props.precio });
-        }
-        */
     }
 
     useEffect(()=>{
@@ -92,14 +67,15 @@ const ItemDetail = (props) => {
                 <ItemCount stock={props.stock} initial={props.initial} onAdd={onAdd}></ItemCount>   
             }
             {added &&
-                <Link to="/cart">
-                <button >Terminar compra</button>  
-                </Link>
+                <>
+                    <Link to="/">
+                        <button >Seguir comprando</button>  
+                    </Link>
+                    <Link to="/cart">
+                        <button >Terminar compra</button>  
+                    </Link>
+                 </>
             }
-            
-            {/* <p><ItemCount stock={props.stock} initial={props.initial} /></p> */}
-
-           
             
         </div>
     )

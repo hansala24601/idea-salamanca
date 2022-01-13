@@ -1,20 +1,21 @@
 import React  from 'react'
 
+import { useContext}  from 'react'
+import {CarritoContexto} from './CartContext';
+
+
 // indica como se pinta cada producto del carrito
 const CartPintar = (props) => {
 
 
-    function borrarElemento() {
-
     
-    }
-    
-
+    const {removeElem} = useContext(CarritoContexto)
 
     return (
         <div>
-            {props.producto} : {props.cantidad} x {props.precio} = {props.cantidad * props.precio}
-            <button onClick={borrarElemento}>Borrar</button> 
+            {props.producto} : {props.cantidad} x {props.precio}$ = {props.cantidad * props.precio} $
+
+            <button onClick={()=>{removeElem(props.producto)}}>x</button>
         </div>
     )
 }

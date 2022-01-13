@@ -16,7 +16,7 @@ import Spinner from '../Spinner';
         // carga a los x segundos
         const getItem = () =>{
 
-            
+            console.log("voy a buscar... "+id);
 
 
             // llamamos a la api para recibir los detalles
@@ -32,6 +32,35 @@ import Spinner from '../Spinner';
                     let resultados = {id: '001', producto: 'Soy un disco', descCorta: 'Un disco y tal muy antiguo', descripcion: "es un disco muy bonito", 
                     precio: 10, stock: 5, initial:1,
                     imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
+
+
+
+
+                    if(id==='001')
+                        resultados = {id: '001', producto: 'Soy un disco', descCorta: 'Un disco y tal muy antiguo', descripcion: "es un disco muy bonito", 
+                        precio: 10, stock: 5, initial:1,
+                        imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
+                    else
+                    if(id==='002')
+                        resultados = {id: '001', producto: 'Otro disco', descCorta: 'Un disco y tal muy antiguo', descripcion: "parece que va a estar bien y no tanto", 
+                        precio: 5, stock: 100, initial:1,
+                        imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
+                    else
+                    if(id==='003')
+                        resultados = {id: '001', producto: 'Camiseta random', descCorta: 'una camiseta', descripcion: "especial para perros", 
+                        precio: 12, stock: 3, initial:1,
+                        imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
+                    else
+                    if(id==='004')
+                        resultados = {id: '001', producto: 'Jarrón', descCorta: 'Jarrón de los Rolling', descripcion: "es un jarrón que da satisfaction", 
+                        precio: 25, stock: 1, initial:1,
+                        imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
+                    else
+                        resultados = {id: '005', producto: 'Hard punk Regueton', descCorta: "lo que parece", descripcion: "aléjate de esto", 
+                        precio: 2, stock: 12, initial:1,
+                        imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
+                        
+
 
 
                     
