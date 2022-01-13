@@ -24,7 +24,7 @@ import ItemList from './ItemList';
                 .then(res => res.json())
                 .then( data => {
 
-                    
+                    //JSON.stringify(data) // sacaria esto convertido en cadena
 
                     //console.log("recibiendo datos "+data.results);
 

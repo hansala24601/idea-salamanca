@@ -12,17 +12,14 @@ const CartWidget = (props) => {
     //            {(props.carro.map(pt => <CartPintar producto={pt.producto} cantidad={pt.cantidad} />))}
 
 
-    const cosasCarrito = useContext(CarritoContexto);
-
-
-    console.log("*********llamada desde el carrito "+cosasCarrito.length);
+    const {list, total, removeElem} = useContext(CarritoContexto)
 
 
         return (
             <>
 
-                {cosasCarrito.length} elementos
-                <a href=""><i class="fa fa-fw fa-shopping-cart"></i>{/*props.numCarro*/}{cosasCarrito}</a>
+
+                <a href=""><i class="fa fa-fw fa-shopping-cart"></i>{total}</a>
 
 
             {/* <CarritoContexto.Consumer> {cosasCarrito} </CarritoContexto.Consumer> */}

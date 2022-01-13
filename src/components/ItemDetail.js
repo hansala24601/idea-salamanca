@@ -11,18 +11,28 @@ import { useContext}  from 'react'
 // indica como se pinta cada producto en la tienda
 const ItemDetail = (props) => {
 
-    const cosasCarrito = useContext(CarritoContexto);
 
-    console.log(cosasCarrito);
+    const {list, addElem, isInCarrito} = useContext(CarritoContexto)
+
+
+
 
     const [added, setAdded] = useState(false)
 
 
     const onAdd = (cantidad) => {
+
         setAdded(true)
         console.log("tenemos que añadir... "+cantidad);
 
+        let meto=props.producto;
+        addElem({producto: props.producto, cantidad: cantidad, precio: props.precio });
+
+
+
+
         // si ya existe en el carrito uno asi
+        /*
         if(cosasCarrito.find(e => e.producto === props.producto))
         {
             console.log("hay uno ya, añadimos la cantidad");
@@ -41,6 +51,7 @@ const ItemDetail = (props) => {
 
             cosasCarrito.push({producto: props.producto, cantidad: cantidad, precio: props.precio });
         }
+        */
     }
 
     useEffect(()=>{
@@ -50,7 +61,7 @@ const ItemDetail = (props) => {
             console.log("no ha sido añadido aun");
 
             
-            let itemsGuardados = JSON.parse(localStorage.getItem('carrito')) || [];
+            //let itemsGuardados = JSON.parse(localStorage.getItem('carrito')) || [];
             //console.log("lo guardado es... "+itemsGuardados);
 
         } 
@@ -58,7 +69,7 @@ const ItemDetail = (props) => {
         {
             console.log("ha sido añadido");
 
-            localStorage.setItem("carrito", JSON.stringify(cosasCarrito));
+            //localStorage.setItem("carrito", JSON.stringify(cosasCarrito));
         }
 
     }, [added])

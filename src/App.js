@@ -21,7 +21,9 @@ import { BrowserRouter, Routes, Route  } from 'react-router-dom';
 import LoginContainer from './components/login/LoginContainer';
 
 
-import {CarritoContexto, carritoCosas} from './components/CartContext';
+import {CarritoContextoProvider} from './components/CartContext';
+
+
 
 
 function App() {
@@ -49,48 +51,48 @@ function App() {
 
       <div className="App">
 
-<CarritoContexto.Provider value={carritoCosas}>
+        <CarritoContextoProvider>
 
-        <BrowserRouter className="container">
+          <BrowserRouter className="container">
 
-            <NavLogin />
+              <NavLogin />
 
-            <NavBar numCarro={carrito.reduce((a,v) =>  a = a + v.cantidad , 0 )} carro={carrito}/>
+              <NavBar numCarro={carrito.reduce((a,v) =>  a = a + v.cantidad , 0 )} carro={carrito}/>
 
 
 
-            <Routes>
+              <Routes>
 
-              <Route path="/" element={<ItemListContainer/>}></Route>
+                <Route path="/" element={<ItemListContainer/>}></Route>
 
-              <Route path="/category/:id" element={<ItemListContainer/>}></Route>
+                <Route path="/category/:id" element={<ItemListContainer/>}></Route>
 
-              <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
+                <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
 
-              <Route path="/contacto" element={<Contacto/>}></Route>
+                <Route path="/contacto" element={<Contacto/>}></Route>
 
-              <Route path="/nosotros" element={<Nosotros/>}></Route>
+                <Route path="/nosotros" element={<Nosotros/>}></Route>
+                
+
+                <Route path="/carrito/" element={<Cart/>}></Route>
+
+                <Route path="/cart/" element={<Cart/>}></Route>
+
+
+                <Route path="/login/" element={<LoginContainer/>}></Route>
+
+              </Routes>
               
+              
+              <br/><br/><br/><br/><br/><br/><br/>
+            
+              <MiFooter/>
 
-              <Route path="/carrito/" element={<Cart/>}></Route>
-
-              <Route path="/cart/" element={<Cart/>}></Route>
-
-
-              <Route path="/login/" element={<LoginContainer/>}></Route>
-
-            </Routes>
-             
-             
-            <br/><br/><br/><br/><br/><br/><br/>
-          
-            <MiFooter/>
-
-          </BrowserRouter>
+            </BrowserRouter>
 
           
 
-</CarritoContexto.Provider>
+        </CarritoContextoProvider>
 
       </div>
 
