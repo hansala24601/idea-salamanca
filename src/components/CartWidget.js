@@ -18,15 +18,20 @@ const CartWidget = (props) => {
 
 
         return (
-            <>
+                <div>
+
+                    {total!=0 && 
+                        <>
+                            <Link to="/pago/">
+                                <i class="fa fa-fw fa-shopping-cart"></i>{total}
+                            </Link>
+                        </>
+                    }
+
+                </div>     
+        )
 
 
-                <Link to="/pago/">
-                    <i class="fa fa-fw fa-shopping-cart"></i>{total}
-                </Link>
-            </>
-
-    )
 }
 
 

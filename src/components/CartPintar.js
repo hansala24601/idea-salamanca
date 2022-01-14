@@ -16,6 +16,8 @@ const CartPintar = (props) => {
             {props.producto} : {props.cantidad} x {props.precio}$ = {props.cantidad * props.precio} $
 
             <button onClick={()=>{removeElem(props.producto)}}>x</button>
+
+            <br></br>
         </div>
     )
 }

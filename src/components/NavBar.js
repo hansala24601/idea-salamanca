@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
 
 
+import {CarritoContexto} from './CartContext';
+import { useContext}  from 'react'
+
+
 const NavBar = (props) => {
+
+
+    const {total} = useContext(CarritoContexto)
+
     return (
         <div className="navBar">
             <nav class="navbar navbar-default">
@@ -32,9 +40,13 @@ const NavBar = (props) => {
                             <i class="fa fa-user-circle"></i> Sobre nosotros
                         </Link>
 
+
+
                         <Link to="/carrito/" className='navbar-brand'>
                             <CartWidget numCarro={props.numCarro} carro={props.carro} />
                         </Link>
+
+
                         
                     </ul>
 
