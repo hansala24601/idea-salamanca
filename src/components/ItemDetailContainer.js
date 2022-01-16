@@ -45,7 +45,6 @@ const q = query(
         resultados = {
             id: datos.id, 
             producto: datos.title, 
-            descCorta: datos.title, 
             descripcion: datos.description, 
             precio: datos.price, 
             stock: datos.stock, 
@@ -161,7 +160,7 @@ getDocs(q).then((snapshot) => {
 
             {loading ? <Spinner></Spinner>  : 
 
-                <ItemDetail producto={detalles.producto} descCorta={detalles.descCorta} descripcion={detalles.descripcion} 
+                <ItemDetail producto={detalles.producto} descripcion={detalles.descripcion} 
                     precio={detalles.precio} initial={1} stock={detalles.stock} imagen={detalles.imagen} />}
         </div>
     )

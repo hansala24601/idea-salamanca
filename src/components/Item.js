@@ -14,7 +14,7 @@ const Item = (props) => {
 
             <Link to={{pathname: '/item/'+props.id }}>
 
-                <h3>{props.id}</h3>
+
                 <h4>{props.title}</h4>
                 <p>{props.price} $$$</p>
 
