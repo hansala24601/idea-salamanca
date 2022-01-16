@@ -4,6 +4,11 @@ import Spinner from '../Spinner';
 import ItemList from './ItemList';
 
 
+import {getDocs, getFirestore, collection} from "firebase/firestore"
+
+
+
+
     const ItemDetailContainer = () => {
 
         const {id} = useParams();
@@ -13,10 +18,43 @@ import ItemList from './ItemList';
         const [loading, setLoading] = useState([false])
 
         // carga a los x segundos
-        const getItem = () =>{
+        const getItem = async () =>{
 
-           
+            let resultados = [];
 
+            const db = getFirestore();
+
+            const querySnapshot = await getDocs(collection(db, 'carrito'));
+
+            querySnapshot.forEach((doc) => {
+
+                console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+
+                const datos= doc.data();
+
+                resultados.push(
+                {
+                    id: datos.id, 
+                    title: datos.title,  
+                    descripcion: datos.description, 
+                    price: datos.price, 
+                    stock: datos.stock,
+                    pictureUrl: datos.image
+                })
+            });
+
+            /*
+            const referenciaCarro=doc (db, "carrito", "SM2cWvE1hqJ3XW2fQSKn");
+
+            getDoc(referenciaCarro).then((snapshot) => 
+            {
+                if(snapshot.exists()){
+                    console.log("esto recibe: "+snapshot.description);
+                }
+            })
+            */
+
+/*
 
             // llamamos a la api para recibir los detalles
             const URL= 'https://rickandmortyapi.com/api/character/';
@@ -67,13 +105,20 @@ import ItemList from './ItemList';
                             ]
                     }
 
+
                         // guardamos lo recibido
                         setItems(resultados);
 
                         setLoading(false);
-    
-
                 })
+*/
+
+
+                        // guardamos lo recibido
+                        setItems(resultados);
+
+                        setLoading(false);
+
 
         }
 
@@ -86,6 +131,10 @@ import ItemList from './ItemList';
 
         setLoading(true);
 
+        getItem();
+
+
+/*
         // hacemos un wait para simular el tiempo hasta la respuesta de la API
        const timer = setTimeout(() => {
 
@@ -93,6 +142,7 @@ import ItemList from './ItemList';
             getItem();
         }, 2000);
         return () => clearTimeout(timer);
+        */
 
     }, [id])
 
