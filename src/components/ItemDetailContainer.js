@@ -23,47 +23,45 @@ import {getDocs, getFirestore, collection, query, where} from "firebase/firestor
 
             let resultados={};
 
-                    
-
-
             const db = getFirestore();
 
 
-const q = query(
-    collection(db, 'carrito'),
-    where ('id', '==', id));
+            const q = query(
+                collection(db, 'carrito'),
+                where ('id', '==', id));
 
 
+            const querySnapshot = await getDocs(q);
+            
+            querySnapshot.forEach((doc) => {
+                
+                console.log(doc.id, " => ", doc.data());
 
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
-
-        const datos= doc.data();
+                const datos= doc.data();
 
 
-        resultados = {
-            id: datos.id, 
-            producto: datos.title, 
-            descripcion: datos.description, 
-            precio: datos.price, 
-            stock: datos.stock, 
-            initial:1,
-            imagen: datos.image
-        };
+                resultados = {
+                    id: datos.id, 
+                    producto: datos.title, 
+                    descripcion: datos.description, 
+                    precio: datos.price, 
+                    stock: datos.stock, 
+                    initial:1,
+                    imagen: datos.image
+                };
 
-    });
+            });
 
 
 
 
 /*
-getDocs(q).then((snapshot) => {
+        getDocs(q).then((snapshot) => {
 
-    if(snapshot.size === 0) console.log("no devuelve nada");
+            if(snapshot.size === 0) console.log("no devuelve nada");
 
-    console.log(JSON.stringify(snapshot.docs.data))
-}
+            console.log(JSON.stringify(snapshot.docs.data))
+        }
 
 
 )
@@ -81,47 +79,10 @@ getDocs(q).then((snapshot) => {
                     //console.log("recibiendo datos "+data.results);
 
                     //setDetalles(data.results)
-
-
-
-
                     
                     let resultados = {id: '001', producto: 'Soy un disco', descCorta: 'Un disco y tal muy antiguo', descripcion: "es un disco muy bonito", 
                     precio: 10, stock: 5, initial:1,
                     imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
-
-
-
-
-                    if(id==='001')
-                        resultados = {id: '001', producto: 'Soy un disco', descCorta: 'Un disco y tal muy antiguo', descripcion: "es un disco muy bonito", 
-                        precio: 10, stock: 5, initial:1,
-                        imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
-                    else
-                    if(id==='002')
-                        resultados = {id: '001', producto: 'Otro disco', descCorta: 'Un disco y tal muy antiguo', descripcion: "parece que va a estar bien y no tanto", 
-                        precio: 5, stock: 100, initial:1,
-                        imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
-                    else
-                    if(id==='003')
-                        resultados = {id: '001', producto: 'Camiseta random', descCorta: 'una camiseta', descripcion: "especial para perros", 
-                        precio: 12, stock: 3, initial:1,
-                        imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
-                    else
-                    if(id==='004')
-                        resultados = {id: '001', producto: 'Jarrón', descCorta: 'Jarrón de los Rolling', descripcion: "es un jarrón que da satisfaction", 
-                        precio: 25, stock: 1, initial:1,
-                        imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
-                    else
-                        resultados = {id: '005', producto: 'Hard punk Regueton', descCorta: "lo que parece", descripcion: "aléjate de esto", 
-                        precio: 2, stock: 12, initial:1,
-                        imagen:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Disco_de_Vinilo.jpg/1024px-Disco_de_Vinilo.jpg"};
-                       
-
-
-
-                    
-
 
                 })
 */
@@ -131,7 +92,6 @@ getDocs(q).then((snapshot) => {
                 setDetalles(resultados);
 
                 setLoading(false);
-
 
         }
 
@@ -144,19 +104,11 @@ getDocs(q).then((snapshot) => {
         setLoading(true);
         getItem();
 
-        /*
-        // hacemos un wait para simular el tiempo hasta la respuesta de la API
-       const timer = setTimeout(() => {
-            getItem();
-        }, 2000);
-        return () => clearTimeout(timer);
-*/
     }, [id])
 
 
     return (
         <div>
-
 
             {loading ? <Spinner></Spinner>  : 
 

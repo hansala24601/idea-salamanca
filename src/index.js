@@ -13,8 +13,8 @@ import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+// Configuracion de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyB9oJCYjIkxAZhTdR8HbsQdW0T2us5d9fA",
   authDomain: "mibasededatos-a6048.firebaseapp.com",

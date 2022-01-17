@@ -24,7 +24,7 @@ import {CarritoContexto} from './CartContext';
                     <>
                         <h2>El carrito está vacío</h2>                     
                         <Link to="/">
-                            <button >Ir a la tienda</button>  
+                            <button className='button-4' >Ir a la tienda</button>  
                         </Link>
                     </>}
 
@@ -37,7 +37,7 @@ import {CarritoContexto} from './CartContext';
 
                 {total!==0 && 
                     <>
-                        <button onClick={()=>{clearList()}}>Borrar todos</button>
+                        <span> </span><button className='button-24' onClick={()=>{clearList()}}>Borrar todos</button>
                         <hr></hr>
                     </>
                 }
@@ -48,7 +48,7 @@ import {CarritoContexto} from './CartContext';
                 {total!==0 && 
                 <>
                     <hr></hr>
-                    Total compra: {list.map(item => item.cantidad * item.precio).reduce((prev, curr) => prev + curr, 0)} $
+                    <h2>Total compra: {list.map(item => item.cantidad * item.precio).reduce((prev, curr) => prev + curr, 0)} $</h2>
                 </>}
 
                 <br></br>

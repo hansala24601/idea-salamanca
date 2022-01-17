@@ -35,7 +35,6 @@ const ItemDetail = (props) => {
         {
             console.log("no ha sido añadido aun");
 
-            
             //let itemsGuardados = JSON.parse(localStorage.getItem('carrito')) || [];
             //console.log("lo guardado es... "+itemsGuardados);
 
@@ -57,10 +56,10 @@ const ItemDetail = (props) => {
         <div className="itemsLista">
             <h3>{props.producto}</h3>
 
-            <p>Descripción: {props.descripcion}</p>
+            <p>{props.descripcion}</p>
             <p>Precio: {props.precio} $$$</p>
             <img height={100} width={100} src={props.imagen} alt="un dibujo"/>
-            <br/>
+            <br/> <br/>
 
 
             {!added && 
@@ -69,10 +68,10 @@ const ItemDetail = (props) => {
             {added &&
                 <>
                     <Link to="/">
-                        <button >Seguir comprando</button>  
+                        <button className='button-4'>Seguir comprando</button>  
                     </Link>
                     <Link to="/cart">
-                        <button >Terminar compra</button>  
+                        <button className='button-4'>Terminar compra</button>  
                     </Link>
                  </>
             }

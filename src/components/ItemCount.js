@@ -24,17 +24,18 @@ function ItemCount({stock, initial, onAdd}) {
             <p>Stock actual: {stock}</p>  
 
              <div>
-                <button onClick={() => restar()}>
+                <button className='button-4' onClick={() => restar()}>
                     -
                 </button>
 
+                <span className='button-recuento'>
                 {cantidad}
-
-                <button onClick={() => sumar()}>
+                </span>
+                <button className='button-4' onClick={() => sumar()}>
                     +
                 </button>
 
-                <button onClick={() => onAdd(cantidad)}>
+                <button className='button-4' onClick={() => onAdd(cantidad)}>
                     Agregar
                 </button>
 
