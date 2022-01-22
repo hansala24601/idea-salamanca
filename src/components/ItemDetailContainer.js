@@ -27,7 +27,7 @@ import {getDocs, getFirestore, collection, query, where} from "firebase/firestor
 
 
             const q = query(
-                collection(db, 'carrito'),
+                collection(db, 'productos'),
                 where ('id', '==', id));
 
 
@@ -113,7 +113,7 @@ import {getDocs, getFirestore, collection, query, where} from "firebase/firestor
             {loading ? <Spinner></Spinner>  : 
 
                 <ItemDetail producto={detalles.producto} descripcion={detalles.descripcion} 
-                    precio={detalles.precio} initial={1} stock={detalles.stock} imagen={detalles.imagen} />}
+                    precio={detalles.precio} initial={1} stock={detalles.stock} imagen={detalles.imagen} id={detalles.id} />}
         </div>
     )
 }

@@ -57,7 +57,7 @@ function App() {
 
               <NavLogin />
 
-              <NavBar numCarro={carrito.reduce((a,v) =>  a = a + v.cantidad , 0 )} carro={carrito}/>
+              <NavBar/>
 
 
 

@@ -27,7 +27,7 @@ import {getDocs, getFirestore, collection, query, orderBy, where} from "firebase
             
 
             let q = query(
-                collection(db, 'carrito'),
+                collection(db, 'productos'),
                 orderBy("id", "asc")
             );
 
@@ -36,7 +36,7 @@ import {getDocs, getFirestore, collection, query, orderBy, where} from "firebase
             {
 
                 q = query(
-                    collection(db, 'carrito'),
+                    collection(db, 'productos'),
                     //orderBy("id", "asc")
                     //, 
                     where ("categoryID", '==', id)
@@ -57,7 +57,7 @@ import {getDocs, getFirestore, collection, query, orderBy, where} from "firebase
                         {
                             id: datos.id, 
                             title: datos.title,  
-                            descripcion: datos.description, 
+                            description: datos.description, 
                             price: datos.price, 
                             stock: datos.stock,
                             pictureUrl: datos.image

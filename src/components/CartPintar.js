@@ -13,7 +13,7 @@ const CartPintar = (props) => {
 
     return (
         <div>
-            <h3>{props.producto} : {props.cantidad} x {props.precio}$ = {props.cantidad * props.precio} $
+            <h3>{props.producto} (ref. {props.id}) : {props.cantidad} x {props.precio}$ = {props.cantidad * props.precio} $
 
             <span> </span> <button className='button-24' onClick={()=>{removeElem(props.producto)}}>x</button></h3>
 

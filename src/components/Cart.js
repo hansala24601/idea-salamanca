@@ -11,16 +11,22 @@ import { Link } from 'react-router-dom';
 import {CarritoContexto} from './CartContext';
 
 
+import OrderButton from './OrderButton';
+
+import ResultadoCompra from './ResultadoCompra';
+
+
     const Cart = (props) => {
     
 
-        const {list, total, clearList} = useContext(CarritoContexto)
+        const {list, total, clearList, idCompra} = useContext(CarritoContexto)
+
 
 
         return (
             <div>
 
-                {total===0 && 
+                {total===0 && idCompra== null &&
                     <>
                         <h2>El carrito está vacío</h2>                     
                         <Link to="/">
@@ -42,16 +48,24 @@ import {CarritoContexto} from './CartContext';
                     </>
                 }
 
-                {list.map(pt => <CartPintar key={pt.producto} producto={pt.producto} cantidad={pt.cantidad} precio={pt.precio} />)} 
+                {list.map(pt => <CartPintar key={pt.producto} producto={pt.producto} id ={pt.id} cantidad={pt.cantidad} precio={pt.precio} />)} 
 
                 
                 {total!==0 && 
                 <>
                     <hr></hr>
                     <h2>Total compra: {list.map(item => item.cantidad * item.precio).reduce((prev, curr) => prev + curr, 0)} $</h2>
+
+                    <br></br>
+
+                    <OrderButton></OrderButton>
+
                 </>}
 
-                <br></br>
+
+
+                <ResultadoCompra></ResultadoCompra>
+
 
 
             </div>

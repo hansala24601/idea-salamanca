@@ -7,6 +7,21 @@ export const CarritoContexto = createContext({
 
 export function CarritoContextoProvider(props) {
 
+
+    const [idCompra, setIdCompra] = useState("")
+
+    const [usuario, setUsuario] = useState({
+
+            name: 'USUARIO',
+            phone: 123456789,
+            email: 'mail@mail.com'
+
+    })
+
+
+
+
+
     // aqui guardo el estado del array del carrito
     const [carrito, setCarrito] = useState([])
 
@@ -15,6 +30,8 @@ export function CarritoContextoProvider(props) {
 
     // funcion que gestiona el añadido de elementos en el el carrito
     const addToCarrito = (elem) => {
+
+        setIdCompra(""); // borro la id de operacion anterior
 
       //añade el numero de elementos nuevos al total
       setTotalGuardado(totalGuardado+elem.cantidad);
@@ -59,13 +76,29 @@ export function CarritoContextoProvider(props) {
 
     //funcion que borra todos los elementos del carrito
     function clearList() {
-      setTotalGuardado(0);
+        setTotalGuardado(0);
         setCarrito([])
     }
+
+
+    const compraRegistro = (id) => {
+
+        setIdCompra(id);
+
+        clearList();
+
+    }
+
+
+
+
 
     const context = {
         list: carrito,
         total: totalGuardado,
+        usuario: usuario,
+        idCompra: idCompra,
+        compraRegistro: compraRegistro,
         addElem: addToCarrito,
         removeElem: removeFromCarrito,
         isInCarrito: isInCarrito,

@@ -43,7 +43,7 @@ const NavBar = (props) => {
 
 
                         <Link to="/carrito/" className='navbar-brand'>
-                            <CartWidget numCarro={props.numCarro} carro={props.carro} />
+                            <CartWidget />
                         </Link>
 
 

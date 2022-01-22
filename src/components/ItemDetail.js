@@ -25,7 +25,7 @@ const ItemDetail = (props) => {
         setAdded(true)
         console.log("tenemos que añadir... "+cantidad);
 
-        addElem({producto: props.producto, cantidad: cantidad, precio: props.precio });
+        addElem({producto: props.producto, cantidad: cantidad, precio: props.precio, id: props.id });
 
     }
 
@@ -54,7 +54,7 @@ const ItemDetail = (props) => {
 
     return (
         <div className="itemsLista">
-            <h3>{props.producto}</h3>
+            <h3>{props.producto} (ref. {props.id})</h3>
 
             <p>{props.descripcion}</p>
             <p>Precio: {props.precio} $$$</p>

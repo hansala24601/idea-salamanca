@@ -15,7 +15,7 @@ const Item = (props) => {
             <Link to={{pathname: '/item/'+props.id }}>
 
 
-                <h4>{props.title}</h4>
+                <h4>{props.title} (ref: {props.id})</h4>
                 <p>{props.price} $$$</p>
 
                 <img height={100} width={100} src={props.pictureUrl} alt="un dibujo"/>
