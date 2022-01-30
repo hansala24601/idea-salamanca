@@ -1,14 +1,15 @@
 import React from 'react'
 
-import ItemCount from './ItemCount'
+import ItemCount from './ItemCount'                                 // importamos el contador de incremento
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';                            // importamos la funcion "Link" para poder enrutar desde los botones de "Seguir comprando" y "Terminar compra"
 
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'                           // importamos las funciones para poder definir estados
 
 
-import {CarritoContexto} from './CartContext';                                      // importamos las funciones para usar el contexto y el manejador de contexto customizado que hemos creado
-import { useContext}  from 'react'
+import { useContext}  from 'react'                                  // importamos las funciones para usar el contexto y 
+import {CarritoContexto} from './CartContext';                      // importamos el manejador de contexto customizado que hemos creado
+
 
 
 // indica como se pinta cada producto en la tienda. "props" son los parámetros que nos envía el padre (quien lo llama o le utiliza)
@@ -20,7 +21,7 @@ const ItemDetail = (props) => {
     const { addElem} = useContext(CarritoContexto)                                          // importamos la función del contexto que sirve para añadir elementos al carrito
 
 
-    const [added, setAdded] = useState(false)
+    const [added, setAdded] = useState(false)                                               // creamos una variable de estado sobre si se ha añadido un elemento (eso haría refrescar el elemento)
 
 
     const onAdd = (cantidad) => {
@@ -32,13 +33,13 @@ const ItemDetail = (props) => {
 
     }
 
-    useEffect(()=>{
+    useEffect(()=>{                                                                             // si se detecta un cambio en el estado "added"
         
         if (!added)
         {
             console.log("no ha sido añadido aun");
 
-            //let itemsGuardados = JSON.parse(localStorage.getItem('carrito')) || [];
+            //let itemsGuardados = JSON.parse(localStorage.getItem('carrito')) || [];              // podríamos guardarlo en el navegador
             //console.log("lo guardado es... "+itemsGuardados);
 
         } 
@@ -53,6 +54,9 @@ const ItemDetail = (props) => {
 
 
 
+    /*
+    * Mostramos los datos del detalle del producto, pero en cuanto se añada alguno saldrán los botones de "Seguir comprando" y "Terminar compra"
+    */
 
 
     return (
