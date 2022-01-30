@@ -1,20 +1,23 @@
 import React from 'react'
+
 import ItemCount from './ItemCount'
+
 import { Link } from 'react-router-dom';
 
 import {useState, useEffect} from 'react'
 
-import {CarritoContexto} from './CartContext';
+
+import {CarritoContexto} from './CartContext';                                      // importamos las funciones para usar el contexto y el manejador de contexto customizado que hemos creado
 import { useContext}  from 'react'
 
 
-// indica como se pinta cada producto en la tienda
+// indica como se pinta cada producto en la tienda. "props" son los parámetros que nos envía el padre (quien lo llama o le utiliza)
 const ItemDetail = (props) => {
 
 
     //const {list, total, addElem, isInCarrito} = useContext(CarritoContexto)
 
-    const { addElem} = useContext(CarritoContexto)
+    const { addElem} = useContext(CarritoContexto)                                          // importamos la función del contexto que sirve para añadir elementos al carrito
 
 
     const [added, setAdded] = useState(false)
@@ -25,7 +28,7 @@ const ItemDetail = (props) => {
         setAdded(true)
         console.log("tenemos que añadir... "+cantidad);
 
-        addElem({producto: props.producto, cantidad: cantidad, precio: props.precio, id: props.id });
+        addElem({producto: props.producto, cantidad: cantidad, precio: props.precio, id: props.id });           // llamamos a la función del contexto que añade elementos al carrito
 
     }
 

@@ -7,14 +7,14 @@ import reportWebVitals from './reportWebVitals';
 
 
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+
+import { initializeApp } from "firebase/app";                                       // importamos las funciones para conectar con Firebase
 import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 
-// Configuracion de Firebase
+// Datos de configuracion de Firebase (sacada de la propia web de Firebase)
 const firebaseConfig = {
   apiKey: "AIzaSyB9oJCYjIkxAZhTdR8HbsQdW0T2us5d9fA",
   authDomain: "mibasededatos-a6048.firebaseapp.com",

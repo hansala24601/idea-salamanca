@@ -1,16 +1,18 @@
 
-import {useState, createContext} from 'react'
+import {useState, createContext} from 'react'                               // importamos las fuincionas necesarias para trabajar con contexto
 
-export const CarritoContexto = createContext({
+export const CarritoContexto = createContext({                              // creamos un contexto con nuestra lista de elementos del carrito (tiene que ser "export" para poder usarse desde este elemento)
     list: []
 })
 
 export function CarritoContextoProvider(props) {
 
 
-    const [idCompra, setIdCompra] = useState("")
+    const [idCompra, setIdCompra] = useState("")                            // aquí guardamos el valor del ID de la última compra para poder mostrarlo desde fuera del carrito
 
-    const [usuario, setUsuario] = useState({
+
+
+    const [usuario, setUsuario] = useState({                                // datos del usuario por defecto
 
             name: 'USUARIO',
             phone: 123456789,
@@ -28,32 +30,36 @@ export function CarritoContextoProvider(props) {
     //aqui guardo el estado del valor total
     const [totalGuardado, setTotalGuardado] = useState(0)
 
-    // funcion que gestiona el añadido de elementos en el el carrito
+    // funcion que gestiona el añadido de elementos en el carrito
     const addToCarrito = (elem) => {
 
-        setIdCompra(""); // borro la id de operacion anterior
+        // borro la id de operacion anterior
+        setIdCompra(""); 
 
-      //añade el numero de elementos nuevos al total
-      setTotalGuardado(totalGuardado+elem.cantidad);
+        //añade el numero de elementos nuevos al total
+        setTotalGuardado(totalGuardado+elem.cantidad);
 
-      //si ya esta lo borro y lo vuelvo a incluir con el nuevo total
-      if(isInCarrito(elem.producto)) 
-      {
-        const resultado =carrito.find(e => e.producto === elem.producto);
-        console.log("esta ya en el carro "+resultado.producto);
-        
-        resultado.cantidad=resultado.cantidad+elem.cantidad;
+        //si ya esta lo borro y lo vuelvo a incluir con el nuevo total (incremento el que había)
+        if(isInCarrito(elem.producto)) 
+        {
+            const resultado =carrito.find(e => e.producto === elem.producto);
+            console.log("esta ya en el carro "+resultado.producto);
+            
+            resultado.cantidad=resultado.cantidad+elem.cantidad;
 
-        carrito.splice(props.producto, 1);
-        carrito.push(resultado);
-      }
-      else
-      {
-        setCarrito( (prevCarrito) => {
-              return prevCarrito.concat(elem)
-          })
-      }
+            carrito.splice(props.producto, 1);
+            carrito.push(resultado);
+        }
+        else
+        {
+            // como no estaba lo incluyo
+
+            setCarrito( (prevCarrito) => {
+                return prevCarrito.concat(elem)
+            })
+        }
     }
+
 
     // funcion que gestiona el borrado de elementos del array del carrito
     const removeFromCarrito = (id) => {
@@ -70,9 +76,12 @@ export function CarritoContextoProvider(props) {
         });
     }
 
+
+    // función que indica si un elemento (a través de su ID) está o no está en el carrito
     const isInCarrito = (id) => {
         return carrito.some( elem => elem.producto === id )
     }
+
 
     //funcion que borra todos los elementos del carrito
     function clearList() {
@@ -81,18 +90,18 @@ export function CarritoContextoProvider(props) {
     }
 
 
+    // función que nos sirve para, una vez recibida la  ID de respuesta de compra, guardarla para mostrarla luego y borrar el carrito
     const compraRegistro = (id) => {
 
         setIdCompra(id);
 
         clearList();
-
     }
 
 
 
 
-
+    // variable donde almacenamos las funciones y variables del contexto (todo lo definido más arriba)
     const context = {
         list: carrito,
         total: totalGuardado,
@@ -105,6 +114,7 @@ export function CarritoContextoProvider(props) {
         clearList: clearList
     }
 
+    // enviamos el contexto y se lo propagamos a todos los hijos de esos elementos
     return (
         <CarritoContexto.Provider value={context}>
             {props.children}
