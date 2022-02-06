@@ -9,15 +9,20 @@ import CartPintar from './CartPintar';
 
 import { Link } from 'react-router-dom';
 
+
+import LoginButton from './LoginButton';
+
 import OrderButton from './OrderButton';
 
 import ResultadoCompra from './ResultadoCompra';
 
 
+
+
     const Cart = (props) => {
     
         // importa lo necesario para gestionar del contexto: el carrito, el total, la función para la limpieza del carrito y el id de la compra
-        const {list, total, clearList, idCompra} = useContext(CarritoContexto)
+        const {list, total, clearList, idCompra, usuario} = useContext(CarritoContexto)
 
 
 
@@ -52,17 +57,27 @@ import ResultadoCompra from './ResultadoCompra';
                 } 
 
 
-        
                 {total!==0 &&                                           // si hay elementos en el carrito calculo el total y dibujo el botón de completar venta
                 <>
                     <hr></hr>
                     <h2>Total compra: {list.map(item => item.cantidad * item.precio).reduce((prev, curr) => prev + curr, 0)} $</h2>
 
-                    <br></br>
-
-                    <OrderButton></OrderButton>
-
                 </>}
+
+                {usuario.name=="" &&                                          
+                    <>
+                        <LoginButton></LoginButton>
+                    </>
+                }
+
+                {usuario.name!="" &&  total!==0 &&                                       
+                    <>
+                    Sus datos son:
+                    <br></br>
+                    {usuario.name} {usuario.phone} {usuario.email}
+                        <OrderButton></OrderButton>
+                    </>
+                }
 
                 <ResultadoCompra></ResultadoCompra>
 

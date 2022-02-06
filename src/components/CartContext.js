@@ -14,12 +14,24 @@ export function CarritoContextoProvider(props) {
 
     const [usuario, setUsuario] = useState({                                // datos del usuario por defecto
 
+            name: '',
+            phone: '',
+            email: ''
+/*
+
             name: 'USUARIO',
             phone: 123456789,
             email: 'mail@mail.com'
 
+*/
+
     })
 
+    const ponUsuario = (usuario) => {
+
+        setUsuario(usuario);
+
+    }
 
 
 
@@ -104,6 +116,7 @@ export function CarritoContextoProvider(props) {
         list: carrito,                      // el array con los datos del carrito
         total: totalGuardado,               // el total de la compra
         usuario: usuario,                   // los datos del usuario
+        pongoUsuario: ponUsuario,           // la función que guarda el usuario
         idCompra: idCompra,                 // el ID que nos devuelven de la compra realizada
         compraRegistro: compraRegistro,     // función que al recibir la ID de compra limpia el carrito 
         addElem: addToCarrito,              // función para añadir elementos al carrito

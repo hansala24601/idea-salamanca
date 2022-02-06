@@ -8,16 +8,14 @@ import { Link } from 'react-router-dom';
 // componente que usamos para mostrar el ID de compra al cliente
 const ResultadoCompra = (props) => {
 
+
     // el ID de compra del contexto
     const {idCompra} = useContext(CarritoContexto)
     
     let resultado= idCompra;
 
-
-
         return (
             <div>
-
 
                 {(resultado!="" ) &&
 
