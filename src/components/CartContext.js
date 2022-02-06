@@ -11,29 +11,16 @@ export function CarritoContextoProvider(props) {
     const [idCompra, setIdCompra] = useState("")                            // aquí guardamos el valor del ID de la última compra para poder mostrarlo desde fuera del carrito
 
 
-
     const [usuario, setUsuario] = useState({                                // datos del usuario por defecto
-
             name: '',
-            phone: '',
             email: ''
-/*
-
-            name: 'USUARIO',
-            phone: 123456789,
-            email: 'mail@mail.com'
-
-*/
-
     })
 
+    // funcion que guarda el nuevo usuario
     const ponUsuario = (usuario) => {
 
         setUsuario(usuario);
-
     }
-
-
 
 
     // aqui guardo el estado del array del carrito

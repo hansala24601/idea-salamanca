@@ -5,6 +5,7 @@ const Nosotros = () => {
     return (
         <div>
             <h2>Nosotros somos lo mejor</h2>
+            Fíate de nuestra palabra. Nunca te mentiríamos. Es verdad. Ve y compra algo.
         </div>
     )
 }

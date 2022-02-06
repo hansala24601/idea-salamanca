@@ -64,7 +64,7 @@ import ResultadoCompra from './ResultadoCompra';
 
                 </>}
 
-                {usuario.name=="" &&                                          
+                {usuario.name=="" &&  total!==0 &&                                         
                     <>
                         <LoginButton></LoginButton>
                     </>

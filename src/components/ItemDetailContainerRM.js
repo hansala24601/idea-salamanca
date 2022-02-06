@@ -1,3 +1,7 @@
+// prueba realizada con la API de Rick&Morty
+
+/*
+
 import React, { useEffect , useState} from 'react'
 
 
@@ -48,3 +52,5 @@ import React, { useEffect , useState} from 'react'
     }
 
 export default ItemDetailContainerRM
+
+*/

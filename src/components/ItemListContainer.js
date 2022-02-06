@@ -66,40 +66,10 @@ import {getDocs, getFirestore, collection, query, orderBy, where} from "firebase
             
                 });
 
+                // guardamos lo recibido
+                setItems(resultados);
 
-/*
-            const querySnapshot = await getDocs(collection(db, 'carrito'));
-
-            querySnapshot.forEach((doc) => {
-
-                console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-
-                const datos= doc.data();
-
-                resultados.push(
-                {
-                    id: datos.id, 
-                    title: datos.title,  
-                    descripcion: datos.description, 
-                    price: datos.price, 
-                    stock: datos.stock,
-                    pictureUrl: datos.image
-                })
-            });
-
-*/
-
-
-
-
-
-
-
-
-                        // guardamos lo recibido
-                        setItems(resultados);
-
-                        setLoading(false);
+                setLoading(false);
 
 
         }
@@ -117,16 +87,6 @@ import {getDocs, getFirestore, collection, query, orderBy, where} from "firebase
         // llamo a la función que se encarga de llamar a la base de datos a recuperar los elementos de dicha categoría (ID)
         getItem();
 
-
-/*
-        // hacemos un wait para simular el tiempo hasta la respuesta de la API
-       const timer = setTimeout(() => {
-
-        
-            getItem();
-        }, 2000);
-        return () => clearTimeout(timer);
-        */
 
     }, [id])
 

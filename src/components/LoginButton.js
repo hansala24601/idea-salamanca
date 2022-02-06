@@ -1,5 +1,3 @@
-
-
 import { useContext}  from 'react'
 import {CarritoContexto} from './CartContext';
 
@@ -27,6 +25,7 @@ const LoginButton = () => {
 
         if(email1==email2)
         {
+            // si todo va bien guardo los datos de usuario
             pongoUsuario({                                
                 name: nombre,
                 email: email1    });

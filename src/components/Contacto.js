@@ -1,33 +1,25 @@
 import React from 'react'
 
 
+import { useState } from 'react'
+
+
 const Contacto = () => {
 
-    const onClickEnvio = (evt) =>{
+    const [nombre, setNombre] = useState('')
 
-        console.log("hola");
-
-        console.log(evt); // dice el tipo de evento que es
-
-    }
+    const [texto, setTexto] = useState('')
 
 
 
-    const teclaVocales = (evt) =>{
+    const [mensaje, setMensaje] = useState('')
+    
 
-        //console.log(evt.keyCode);
+    // compruebo que el email es el mismo en ambos casos o saco un error
+    const onClickEnvio = () => {
 
-        console.log(evt.key);
-        
-        const invalidKeys= ['a', 'e', 'i', 'o', 'u'];
-
-        if(invalidKeys.includes(evt.key))
-        {
-            evt.preventDefault();
-        }
-
-
-
+        setMensaje("Gracias por tu mensaje '"+texto+"', "+nombre);
+        // faltaría enviarlo por mail o gestionarlo
 
     }
 
@@ -35,11 +27,16 @@ const Contacto = () => {
     return (
         <div>
             <h2>Formulario de contacto</h2>
+            <br></br>
+            <b>Nombre: </b><input onChange={event => setNombre(event.target.value)} />
+            <br></br>
+            <b>Mensaje: </b><textarea onChange={event => setTexto(event.target.value)} />
+            <br></br>
 
-            <input onKeyDown={teclaVocales} type="text" />
+            {mensaje}
             <br></br>
-            <textarea></textarea>
-            <br></br>
+            
+
             <button onClick={onClickEnvio}>Enviar</button>
         </div>
     )

@@ -113,39 +113,6 @@ const OrderButton = () => {
 
 
 
-
-
-    /*
-    const updateHandler = async () => {
-        const lastOrder = doc(db, "orders-store", lastId);
-
-        // Set the "capital" field of the city 'DC'
-        await updateDoc(lastOrder, {
-            total: 30
-        });
-    }
-
-
-    const updatePricesHandler = async () => {
-        const batch = writeBatch(db);
-
-        const doc1 = doc(db, "orders-store", "5qb7uTfWT4ehOg5gaV2G");
-        batch.update(doc1, {total: 70});
-
-        const doc2 = doc(db, "orders-store", "D6IoYsmjjLjJkn5YbdRb");
-        batch.update(doc2, {total: 75});
-
-        const doc3 = doc(db, "orders-store", "Df6Mf3DMs6HGCoSNUCiP");
-        batch.update(doc3, {total: 65});
-
-        const doc4 = doc(db, "orders-store", "hvENOSOjkHb1lEE5sPgo");
-        batch.delete(doc4);
-
-        await batch.commit();
-    }
-*/
-
-
     // componente que dibuja un  círculo de carga o el botón de terminar compra mientras realizamos la compra (mientras se guarda en base de datos)
     return (
         <div>
