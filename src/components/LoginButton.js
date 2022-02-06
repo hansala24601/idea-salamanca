@@ -53,7 +53,7 @@ const LoginButton = () => {
             <b>Repetir email: </b><input onChange={event => setEmail2(event.target.value)} />
             <br/>
 
-            <i>{mensajeError}</i>
+            <p style={{color: 'red'}}><i>{mensajeError}</i></p>
             <br/><br/>
 
             <button onClick={buyHandler} >Guardar usuario</button>
