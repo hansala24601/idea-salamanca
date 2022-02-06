@@ -1,5 +1,6 @@
 import React from 'react'
 
+// el componente que dibuja el footer de la página
 const MiFooter = () => {
     return (
         <div className="miFooter">

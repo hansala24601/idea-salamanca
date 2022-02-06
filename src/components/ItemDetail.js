@@ -54,9 +54,8 @@ const ItemDetail = (props) => {
 
 
 
-    /*
-    * Mostramos los datos del detalle del producto, pero en cuanto se añada alguno saldrán los botones de "Seguir comprando" y "Terminar compra"
-    */
+    // Mostramos los datos del detalle del producto, pero en cuanto se añada alguno saldrán los botones de "Seguir comprando" y "Terminar compra"
+    
 
 
     return (

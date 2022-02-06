@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Spinner from '../Spinner';
 import ItemList from './ItemList';
 
-
+// importamos las funciones necesarias para tratar con base de datos
 import {getDocs, getFirestore, collection, query, orderBy, where} from "firebase/firestore"
 
 
@@ -17,24 +17,24 @@ import {getDocs, getFirestore, collection, query, orderBy, where} from "firebase
 
         const [loading, setLoading] = useState([false])
 
-        // carga a los x segundos
+
+        // función que llama a base de datos
         const getItem = async () =>{
 
             let resultados = [];
 
             const db = getFirestore();
 
-            
-
+            // si no recibimos una categoría recuperamos todos los productos por ID ascendente
             let q = query(
                 collection(db, 'productos'),
                 orderBy("id", "asc")
             );
 
-
+            // si recibimos una categoría hacemos una query especial
             if(id!= undefined)
             {
-
+                // montamos la query (buscando los elementos que tengan una determinada categoría)
                 q = query(
                     collection(db, 'productos'),
                     //orderBy("id", "asc")
@@ -45,14 +45,15 @@ import {getDocs, getFirestore, collection, query, orderBy, where} from "firebase
                     console.log("*********** Buscamos categoria: "+id);
             }
             
-            
+                // llamamos a la base de datos con la query
                 const querySnapshot = await getDocs(q);
+
                 querySnapshot.forEach((doc) => {
                   console.log(doc.id, " => ", doc.data());
             
                     const datos= doc.data();
             
-            
+                    // da formato a los datos de cada item recuperados y los guarda en un array
                     resultados.push(
                         {
                             id: datos.id, 
@@ -110,8 +111,10 @@ import {getDocs, getFirestore, collection, query, orderBy, where} from "firebase
         // si hay una ruta de categoria definida muestro cual es
         if (id!= null) console.log("llamada a categoria id: "+id);
 
+        // marco que estoy comenzando el proceso de carga
         setLoading(true);
 
+        // llamo a la función que se encarga de llamar a la base de datos a recuperar los elementos de dicha categoría (ID)
         getItem();
 
 
@@ -128,17 +131,15 @@ import {getDocs, getFirestore, collection, query, orderBy, where} from "firebase
     }, [id])
 
 
+    // mensaje de bienvenida
     const greeting='Hard random pop\n(Random stuff for random people)';
 
+    // componente que dibuja el mensaje de bienvenida, un círculo de carga en css mientras no haya datos y luego dibuja la lista de elementos recuperados 
     return (
         <div>
 
                 <div className="greetings">{greeting}</div>
                 <hr/>
-
-
-
-
 
                {loading ? <Spinner></Spinner> : <ItemList items={items} /> }
         </div>

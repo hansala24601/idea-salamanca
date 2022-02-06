@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+// barra de login (un enlace al login)
 const NavLogin = () => {
     return (
         <div className="navLogin">

@@ -12,6 +12,7 @@ const NavBar = (props) => {
 
     const {total} = useContext(CarritoContexto)
 
+    // la barra de navegación con el brand de la marca, enlaces a categorías...
     return (
         <div className="navBar">
             <nav class="navbar navbar-default">

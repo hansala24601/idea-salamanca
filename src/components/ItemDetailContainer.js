@@ -16,16 +16,16 @@ import {getDocs, getFirestore, collection, query, where} from "firebase/firestor
         const [loading, setLoading] = useState([false])
 
 
-        // carga a los x segundos
+        // carga de forma asincrona (dependemos de la base de datos)
         const getItem =  async () =>{
 
-            console.log("voy a buscar... "+id);
+            console.log("voy a buscar... "+id);     // traza para ver el id del producto que buscamos
 
             let resultados={};
 
             const db = getFirestore();
 
-
+            // buscamos el elemento que tenga nuestra ID
             const q = query(
                 collection(db, 'productos'),
                 where ('id', '==', id));
@@ -39,7 +39,7 @@ import {getDocs, getFirestore, collection, query, where} from "firebase/firestor
 
                 const datos= doc.data();
 
-
+                // colocamos los datos recuperados en nuestra variable con los resultados
                 resultados = {
                     id: datos.id, 
                     producto: datos.title, 
@@ -91,6 +91,7 @@ import {getDocs, getFirestore, collection, query, where} from "firebase/firestor
 
                 setDetalles(resultados);
 
+                // consideramos el proceso de lectura de base de datos como acabado
                 setLoading(false);
 
         }
@@ -101,12 +102,16 @@ import {getDocs, getFirestore, collection, query, where} from "firebase/firestor
         
         console.log("llamada con el id de producto: "+id);
 
+        // marcamos el momento en que consideramos como que empezamos la operación de recuperar datos
         setLoading(true);
+
+        // llamamos a la función que llama a la base de datos
         getItem();
 
     }, [id])
 
 
+    // mientras carga muestra un efecto de css y en cuanto ha recuperado los datos del elemento lo muestra
     return (
         <div>
 

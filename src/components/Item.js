@@ -6,14 +6,13 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
+// componente que nos dibuja un producto con su ID, su precio y su imagen asociada
 const Item = (props) => {
     return (
 
         <div className='item'>
 
-
             <Link to={{pathname: '/item/'+props.id }}>
-
 
                 <h4>{props.title} (ref: {props.id})</h4>
                 <p>{props.price} $$$</p>

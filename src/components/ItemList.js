@@ -2,6 +2,8 @@
 import React from 'react'
 import Item from './Item'
 
+
+// componente que se dedica a dibujar cada item recuperado en pantalla
 const ItemList = (props) => {
     return (
         <div>

@@ -99,19 +99,17 @@ export function CarritoContextoProvider(props) {
     }
 
 
-
-
     // variable donde almacenamos las funciones y variables del contexto (todo lo definido más arriba)
     const context = {
-        list: carrito,
-        total: totalGuardado,
-        usuario: usuario,
-        idCompra: idCompra,
-        compraRegistro: compraRegistro,
-        addElem: addToCarrito,
-        removeElem: removeFromCarrito,
-        isInCarrito: isInCarrito,
-        clearList: clearList
+        list: carrito,                      // el array con los datos del carrito
+        total: totalGuardado,               // el total de la compra
+        usuario: usuario,                   // los datos del usuario
+        idCompra: idCompra,                 // el ID que nos devuelven de la compra realizada
+        compraRegistro: compraRegistro,     // función que al recibir la ID de compra limpia el carrito 
+        addElem: addToCarrito,              // función para añadir elementos al carrito
+        removeElem: removeFromCarrito,      // función que elimina objetos del carrito
+        isInCarrito: isInCarrito,           // función que indica si un elemento ya está en el carrito
+        clearList: clearList                // función que limpia el carrito
     }
 
     // enviamos el contexto y se lo propagamos a todos los hijos de esos elementos

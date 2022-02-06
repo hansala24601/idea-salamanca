@@ -27,13 +27,16 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 
 
 
-
+/* 
+    función principal de nuestra aplicación en REACT
+    Dentro tiene un contexto para poder manejar el carrito, datos de usuario...
+    Dentro de el tenemos la barra de login, una barra de navegación, varias rutas para abrir los distintos componentes (listas de items, contacto...) y el footer
+*/
 function App() {
 
 
   return (
       
-
 
       <div className="App">
 

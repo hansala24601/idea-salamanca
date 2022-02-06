@@ -1,5 +1,6 @@
 import React from 'react'
 
+// la página con la descripción de "quién somos"
 const Nosotros = () => {
     return (
         <div>

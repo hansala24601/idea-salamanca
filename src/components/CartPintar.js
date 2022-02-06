@@ -4,11 +4,9 @@ import { useContext}  from 'react'
 import {CarritoContexto} from './CartContext';
 
 
-// indica como se pinta cada producto del carrito
+// componente que se dedica a pintar cada producto del carrito
 const CartPintar = (props) => {
 
-
-    
     const {removeElem} = useContext(CarritoContexto)
 
     return (
