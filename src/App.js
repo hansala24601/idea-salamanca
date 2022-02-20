@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route  } from 'react-router-dom';           // i
 
 import Contacto from './components/Contacto';                               // importamos el elemento con la página de "contacto" para poder enrutarla desde la principal
 import Nosotros from './components/Nosotros';                               // importamos el elemento con la página de "sobre nosotros" para poder enrutarla desde la principal
-import LoginContainer from './components/login/LoginContainer';             // importamos el elemento con la página de login para poder enrutarla desde la principal
+//import LoginContainer from './components/login/LoginContainer';             // importamos el elemento con la página de login para poder enrutarla desde la principal
 import Cart from './components/Cart';                                       // importamos el elemento con la página del carrito para poder enrutarla desde la principal
 
 
@@ -69,7 +69,7 @@ function App() {
                   <Route path="/pago/" element={<Cart/>}></Route>
 
 
-                  <Route path="/login/" element={<LoginContainer/>}></Route>
+                  {/* <Route path="/login/" element={<LoginContainer/>}></Route> */}
 
               </Routes>
               
